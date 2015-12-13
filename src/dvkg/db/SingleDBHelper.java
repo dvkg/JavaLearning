@@ -9,6 +9,10 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 
 /**
  * 
@@ -19,11 +23,17 @@ public class SingleDBHelper {
 	
 	private static SingleDBHelper inst = new SingleDBHelper();
 	
+	private static Logger logger = null;
+	
 	private Map<String,DBConnector> connPool = new HashMap<String, DBConnector>();
 	
 	private Properties property = new Properties();
 	
 	private SingleDBHelper(){
+		logger = LoggerFactory.getLogger(dvkg.db.SingleDBHelper.class);
+		logger.trace("trace");
+		logger.debug("debug");
+		logger.info("info");
 		String dbconfig = null;
 		try {
 			//dbconfig = SingleDBHelper.class.getClassLoader().getResource("").getPath() + "config/dbconfig.properties"; 
