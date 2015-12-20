@@ -73,6 +73,7 @@ public class DBConnector {
 		
 		try {
 			conn = DriverManager.getConnection(dburl, dbuser, dbpasswd);
+			st =  conn.createStatement();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			System.out.println("[ERROR]:无法初始化数据库连接:dburl="+dburl 
@@ -86,7 +87,7 @@ public class DBConnector {
 		rs = null;
 		if(conn != null){
 			try {
-				st = conn.createStatement();
+				//st = conn.createStatement();
 				rs = st.executeQuery(sqlCmd);
 				//st.close();
 				//conn.close();
@@ -105,7 +106,7 @@ public class DBConnector {
 		
 		if(conn != null){
 			try {
-				st = conn.createStatement();
+				//st = conn.createStatement();
 				ret = st.executeUpdate(sqlCmd);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
